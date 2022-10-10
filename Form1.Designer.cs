@@ -39,6 +39,10 @@ namespace UnrealModLoader
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.changePathButton2 = new System.Windows.Forms.Button();
             this.refreshButton1 = new System.Windows.Forms.Button();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.launchGameButton1 = new System.Windows.Forms.Button();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // modsListBox1
@@ -46,14 +50,14 @@ namespace UnrealModLoader
             this.modsListBox1.FormattingEnabled = true;
             this.modsListBox1.Items.AddRange(new object[] {
             "Mods appear here"});
-            this.modsListBox1.Location = new System.Drawing.Point(12, 156);
+            this.modsListBox1.Location = new System.Drawing.Point(12, 171);
             this.modsListBox1.Name = "modsListBox1";
-            this.modsListBox1.Size = new System.Drawing.Size(289, 259);
+            this.modsListBox1.Size = new System.Drawing.Size(289, 289);
             this.modsListBox1.TabIndex = 0;
             // 
             // applyButton1
             // 
-            this.applyButton1.Location = new System.Drawing.Point(13, 421);
+            this.applyButton1.Location = new System.Drawing.Point(13, 469);
             this.applyButton1.Name = "applyButton1";
             this.applyButton1.Size = new System.Drawing.Size(288, 23);
             this.applyButton1.TabIndex = 1;
@@ -64,7 +68,7 @@ namespace UnrealModLoader
             // modLabel1
             // 
             this.modLabel1.AutoSize = true;
-            this.modLabel1.Location = new System.Drawing.Point(129, 140);
+            this.modLabel1.Location = new System.Drawing.Point(139, 160);
             this.modLabel1.Name = "modLabel1";
             this.modLabel1.Size = new System.Drawing.Size(33, 13);
             this.modLabel1.TabIndex = 2;
@@ -128,11 +132,55 @@ namespace UnrealModLoader
             this.refreshButton1.UseVisualStyleBackColor = true;
             this.refreshButton1.Click += new System.EventHandler(this.refreshButton1_Click);
             // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(13, 137);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.ReadOnly = true;
+            this.textBox2.Size = new System.Drawing.Size(258, 20);
+            this.textBox2.TabIndex = 10;
+            this.textBox2.Text = "Path to Game (exe file)";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(277, 135);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(24, 23);
+            this.button1.TabIndex = 9;
+            this.button1.Text = "...";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // launchGameButton1
+            // 
+            this.launchGameButton1.Location = new System.Drawing.Point(13, 498);
+            this.launchGameButton1.Name = "launchGameButton1";
+            this.launchGameButton1.Size = new System.Drawing.Size(288, 23);
+            this.launchGameButton1.TabIndex = 11;
+            this.launchGameButton1.Text = "Launch Game";
+            this.launchGameButton1.UseVisualStyleBackColor = true;
+            this.launchGameButton1.Click += new System.EventHandler(this.launchGameButton1_Click);
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(155, 3);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(157, 17);
+            this.checkBox1.TabIndex = 12;
+            this.checkBox1.Text = "Close Window after Launch";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(313, 450);
+            this.ClientSize = new System.Drawing.Size(313, 525);
+            this.Controls.Add(this.checkBox1);
+            this.Controls.Add(this.launchGameButton1);
+            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.refreshButton1);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.changePathButton2);
@@ -164,6 +212,10 @@ namespace UnrealModLoader
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button changePathButton2;
         private System.Windows.Forms.Button refreshButton1;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button launchGameButton1;
+        private System.Windows.Forms.CheckBox checkBox1;
     }
 }
 

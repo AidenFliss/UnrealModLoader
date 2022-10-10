@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Windows.Forms;
 using Microsoft.WindowsAPICodePack;
@@ -16,7 +17,9 @@ namespace UnrealModLoader
 
         public string gamePath = @"C:\";
         public string modDisabledPath = @"C:\";
+        public string selectedGamePath = @"C:\";
         public List<string> filePaths = new List<string>();
+        public bool closeAfterLaunch = false;
 
         private void changePathButton2_Click(object sender, EventArgs e)
         {
@@ -147,6 +150,48 @@ namespace UnrealModLoader
             else
             {
                 MessageBox.Show("Error! Disabled mods path is null!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog exeDlg = new OpenFileDialog();
+            exeDlg.Title = "Select game exe.";
+            exeDlg.Multiselect = false;
+            exeDlg.Filter = "exe files (*.exe)|*.exe";
+            DialogResult result = exeDlg.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                textBox2.Text = exeDlg.FileName;
+                selectedGamePath = exeDlg.FileName;
+            }
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            closeAfterLaunch = !closeAfterLaunch;
+        }
+
+        private void launchGameButton1_Click(object sender, EventArgs e)
+        {
+            if (File.Exists(selectedGamePath) && selectedGamePath != @"C:\")
+            {
+                if (Path.GetExtension(selectedGamePath) == ".exe")
+                {
+                    Process.Start(selectedGamePath);
+                    if (closeAfterLaunch == true)
+                    {
+                        Application.Exit();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Error! File not exe!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Error! Game exe doesnt exist or invalid path!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }
